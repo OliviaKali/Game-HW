@@ -16,7 +16,7 @@ var guessesLeft = 9;
 var guessedLetters = []
 
 var directionsText = document.getElementById('directions-text');
-var userChoiceText = document.getElementById('userchoice-text');
+// var userChoiceText = document.getElementById('userchoice-text');
 // var computerChoiceText = document.getElementById('computerchoice-text');
 var $wins = document.getElementById('wins-text');
 var $losses = document.getElementById('losses-text');
@@ -52,11 +52,20 @@ document.onkeyup = function(event) {
     $guessedLetters.innerHTML = guessedLetters
     console.log(guessedLetters)
 
+//   if (guessesLeft > 0) {
     if (userGuess === computerGuess) {
         wins++
+        // winsText.textContent = 'wins: ' + wins;
 
+        // $wins = document.getElementById('wins-text');
+        // $winsText.textContent = 'wins-text' + wins
+
+        // let wins =0;
+
+        // function wins () {
+        //     document.getElementById("wins").stepUp(1);
+        // }
         // update wins html content with wins variable content
-
         reset()
     }
 
@@ -69,7 +78,13 @@ document.onkeyup = function(event) {
     }
 
 
-}
+    directionsText.textContent = '';
+
+    $wins.textContent = wins;
+    $losses.textContent = losses;
+    $guessesLeft.textContent =  guessesLeft
+    
+};
 
 
 
