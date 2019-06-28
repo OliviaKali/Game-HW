@@ -1,9 +1,3 @@
-// var computerChoices = ["a", "b","c","d","e","f","g",
-// "h","i","j","k","l","m","n","o","p","q","r","s","t","u",
-// "v","w","x","y","z"];
-
-// var computerChoices = ["hello", "world", "earth", "sky"]
-
 var alphabet = 
 'abcdefghijklmnopqrstuvwxyz'.split("")
 
@@ -16,8 +10,6 @@ var guessesLeft = 9;
 var guessedLetters = []
 
 var directionsText = document.getElementById('directions-text');
-// var userChoiceText = document.getElementById('userchoice-text');
-// var computerChoiceText = document.getElementById('computerchoice-text');
 var $wins = document.getElementById('wins-text');
 var $losses = document.getElementById('losses-text');
 var $guessesLeft = document.getElementById('guesses-left');
@@ -29,63 +21,37 @@ function reset() {
     guessedLetters.length = 0
 }
 
-
 document.onkeyup = function(event) {
 
     var userGuess = event.key.toLowerCase()
     
-
-    console.log(`USER GUESS ${userGuess}`);
-    console.log(`COMPUTER GUESS ${computerGuess}`);
-
+    // console.log(`USER GUESS ${userGuess}`);
+    // console.log(`COMPUTER GUESS ${computerGuess}`);
 
     guessesLeft--
 
-    console.log(guessesLeft)
-
-    // push letters guessed into an array to show user
+    // console.log(guessesLeft)
 
     guessedLetters.push(userGuess)
     
-    // write guessedLetters array to HTML 
-
     $guessedLetters.innerHTML = guessedLetters
-    console.log(guessedLetters)
+    // console.log(guessedLetters)
 
-//   if (guessesLeft > 0) {
     if (userGuess === computerGuess) {
         wins++
-        // winsText.textContent = 'wins: ' + wins;
-
-        // $wins = document.getElementById('wins-text');
-        // $winsText.textContent = 'wins-text' + wins
-
-        // let wins =0;
-
-        // function wins () {
-        //     document.getElementById("wins").stepUp(1);
-        // }
-        // update wins html content with wins variable content
         reset()
     }
-
     if (guessesLeft === 0) {
         losses++ 
-
-        // update losses html content with losses variable content
-
         reset()
     }
 
-
     directionsText.textContent = '';
-
     $wins.textContent = wins;
     $losses.textContent = losses;
     $guessesLeft.textContent =  guessesLeft
     
 };
-
 
 
 
